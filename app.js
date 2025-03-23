@@ -20,8 +20,10 @@ async function main() {
   await mongoose.connect(MNGO_URL);
 }
 
-app.set("view engine","ejs")
-app.set("views",path.join(__dirname, "views"))
+app.set("view engine","ejs");
+app.set("views",path.join(__dirname, "views"));
+app.use(express.urlencoded({extended:true}));
+
 
 // app.set("index.ejs",path.join(__filename, "index.ejs"))
 
@@ -36,7 +38,15 @@ app.get("/listings", async (req, res)=>{
   res.render("listings/index.ejs",{allListings});
   // res.send("Hi i am root");
     
-}) 
+});
+
+// Show Id
+app.get("/listings/:id", async (req,res)=>{
+  // req.params['id'];
+  let { id } = req.params;
+  const listing = await Listing.findById(id);
+  res.render("listings/show.ejs",{listing});
+});
 
 
 // const allListing = await Listing.find({})

@@ -6,6 +6,11 @@ const listingSchema = new Schema({
         type :String,
         required :true,
     },
+    // id: { 
+    //     type: mongoose.Schema.Types.ObjectId, 
+    //     required: true
+    //   },
+
 
     description : String,
     image: {
