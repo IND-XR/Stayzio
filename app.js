@@ -1,12 +1,22 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+
 const PORT = 8080;
-const Listing = require("./models/listing.js");
+
+const Listing = require("./models/listing.js");    // isting models part
+
 const path = require("path");
 
+//  { mongodb
+
+// MNGO_URL -  ( URL pass form mongodb website  )
 const MNGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 
+// Create a data base  write a Async function 
+async function main() {
+  await mongoose.connect(MNGO_URL);
+}
 
 main()
   .then((res) => {
@@ -16,9 +26,8 @@ main()
     console.log("error", err);
   });
 
-async function main() {
-  await mongoose.connect(MNGO_URL);
-}
+//  mongodb }
+
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname, "views"));
@@ -48,6 +57,11 @@ app.get("/listings/:id", async (req,res)=>{
   res.render("listings/show.ejs",{listing});
 });
 
+
+app.listen(PORT, (error) => {
+  if (!error) console.log("Server is successful Running" + PORT);
+  else console.log("Error", error);
+});
 
 // const allListing = await Listing.find({})
 
@@ -85,10 +99,7 @@ app.get("/listings/:id", async (req,res)=>{
 
 
 
-app.listen(PORT, (error) => {
-  if (!error) console.log("Server is successful Running" + PORT);
-  else console.log("Error", error);
-});
+
 
 // Listing.deleteMany({title: "my New Villa"})
 // .then((res)=>{
