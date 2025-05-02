@@ -1,7 +1,11 @@
 const mongoose = require("mongoose")
 const initData  = require("./data.js")
-const Listing = require("../models/listing.js");
 
+const Listing = require("../models/listing.js");    
+
+//  { mongodb
+
+// MNGO_URL -  ( URL pass form mongodb website  )
 const MNGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 
 main()
@@ -15,6 +19,10 @@ main()
 async function main() {
   await mongoose.connect(MNGO_URL);
 }
+
+
+//  mongodb }
+
 
 const initDB = async (res ,req) => {
     try{
