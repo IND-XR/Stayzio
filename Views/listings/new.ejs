@@ -7,19 +7,18 @@
 </head>
 <body>
     <h3> Create a new Listings </h3>
-    <form method="post" action="/listings">
-
-        <input type="text" name="Listing[title]" placeholder="Enter title">
+    <form method="POST" action="/listings">
+        <input type="text" name="listing[title]" placeholder="Enter title">
         <br> <br>
-        <textarea name="Listing[description]" placeholder="Enter description"> </textarea>
+        <textarea name="listing[description]" placeholder="Enter description"> </textarea>
         <br> <br>
-        <input type="text" name="Listing[image]" placeholder=" enter image URL ">
+        <input type="text" name="listing[image]" placeholder=" enter image URL ">
         <br> <br>
-        <input type="number" name="Listing[price]" placeholder=" Enter price ">
+        <input type="number" name="listing[price]" placeholder=" Enter price ">
         <br> <br>
-        <input type="text" name="Listing[Locations]" placeholder=" Enter Location">
+        <input type="text" name="listing[Locations]" placeholder=" Enter Location">
         <br> <br>
-        <input type="text" name="Listing[Country]" placeholder="Enter country">
+        <input type="text" name="listing[Country]" placeholder="Enter country">
         <br> <br>
         <Button>Add</Button>
 

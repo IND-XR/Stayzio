@@ -67,22 +67,25 @@ app.get("/listings/:id", async (req,res)=>{
 });
 
 // //Create Route
-// app.post("/listings", async (req,res)=>{
-//   const newListing = new Listing(req.body.listing);
-//   await newListing.save();
-//   res.redirect("/listings")
-// })
+app.post("/listings", async (req,res)=>{
+  const newListing = new Listing(req.body.listing);
+   newListing.save();
+  res.redirect("/listings")
+})
 
-app.post("/listings", async (req, res) => {
-  try {
-    const newListing = new Listing(req.body.listing);
-    await newListing.save();
-    res.redirect("/listings");
-  } catch (err) {
-    console.error("Error saving listing:", err);
-    res.status(500).send("Internal Server Error");
-  }
-});
+// app.post("/listings", async (req, res) => {
+//   try {
+//     const newListing = new Listing(req.body.listing);
+//     await newListing.save();
+
+//     const listings = await Listing.find({});
+// res.render("listings/index.ejs");
+//     // res.redirect("/listings");
+//   } catch (err) {
+//     console.error("Error saving listing:", err);
+//     res.status(500).send("Internal Server Error");
+//   }
+// });
 
 
 
