@@ -6,7 +6,6 @@ const PORT = 8080;
 
 const Listing = require("./models/listing.js");    // isting models part
 
-const path = require("path");
 
 //  { mongodb
 
@@ -28,13 +27,16 @@ main()
 
 //  mongodb }
 
+const path = require("path");   //access views / listings
+
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname, "views"));
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({extended:true})); // id 
 
 
 // app.set("index.ejs",path.join(__filename, "index.ejs"))
+
 
 app.get("/", (req, res) => {
   res.send("Hi i am root");
@@ -42,12 +44,19 @@ app.get("/", (req, res) => {
 
 
 // Index Route
-app.get("/listings", async (req, res)=>{
-  const allListings = await Listing.find({})
+app.get("/listings", async (req,res)=>{
+  const allListings = await Listing.find({})   // Mongoose model representing a MongoDB collection   // .find({}) fetches all documents in the Listing collection.
   res.render("listings/index.ejs",{allListings});
-  // res.send("Hi i am root");
-    
+  // res.send("run");
 });
+
+
+//New Route
+app.get("/listings/new",(req,res)=>{
+  res.render("listings/new.ejs")
+  // res.send("heloo");
+})
+
 
 // Show Id
 app.get("/listings/:id", async (req,res)=>{
@@ -57,11 +66,44 @@ app.get("/listings/:id", async (req,res)=>{
   res.render("listings/show.ejs",{listing});
 });
 
+// //Create Route
+// app.post("/listings", async (req,res)=>{
+//   const newListing = new Listing(req.body.listing);
+//   await newListing.save();
+//   res.redirect("/listings")
+// })
+
+app.post("/listings", async (req, res) => {
+  try {
+    const newListing = new Listing(req.body.listing);
+    await newListing.save();
+    res.redirect("/listings");
+  } catch (err) {
+    console.error("Error saving listing:", err);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+
 
 app.listen(PORT, (error) => {
   if (!error) console.log("Server is successful Running" + PORT);
   else console.log("Error", error);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // const allListing = await Listing.find({})
 
