@@ -105,6 +105,18 @@ app.put("/listings/:id", async (req,res)=>{
   res.redirect(`/listings/${id}`);
 });
 
+
+//Delect Route
+app.delete("/listings/:id", async (req,res)=>{
+  let { id } = req.params;
+  let deletedListing = await Listing.findByIdAndDelete(id);
+  console.log(deletedListing);
+  res.redirect("/listings");
+})
+
+
+
+
 app.listen(PORT, (error) => {
   if (!error) console.log("Server is successful Running" + PORT);
   else console.log("Error", error);
