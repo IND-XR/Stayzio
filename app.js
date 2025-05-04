@@ -34,6 +34,9 @@ app.set("view engine","ejs");
 app.set("views",path.join(__dirname, "views"));
 app.use(express.urlencoded({extended:true})); // id 
 
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
+
 
 // app.set("index.ejs",path.join(__filename, "index.ejs"))
 
@@ -66,28 +69,41 @@ app.get("/listings/:id", async (req,res)=>{
   res.render("listings/show.ejs",{listing});
 });
 
-// //Create Route
-app.post("/listings", async (req,res)=>{
-  const newListing = new Listing(req.body.listing);
-   newListing.save();
-  res.redirect("/listings")
+
+// Create Route
+
+// app.post("/listings", async (req,res)=>{
+//   const newListing = new Listing(req.body.listing);
+//    newListing.save();
+//   res.redirect("/listings")
+// })
+
+app.post("/listings", async (req, res) => {
+  try {
+    const newListing = new Listing(req.body.listing);
+    await newListing.save();
+    res.redirect("/listings");
+  } catch (err) {
+    console.error("Error saving listing:", err);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+
+// Edit Route 
+app.get("/listings/:id/edit",async (req,res)=>{
+  let { id } = req.params;
+  const listing = await Listing.findById(id);
+  res.render("listings/edit.ejs",{listing});
 })
 
-// app.post("/listings", async (req, res) => {
-//   try {
-//     const newListing = new Listing(req.body.listing);
-//     await newListing.save();
 
-//     const listings = await Listing.find({});
-// res.render("listings/index.ejs");
-//     // res.redirect("/listings");
-//   } catch (err) {
-//     console.error("Error saving listing:", err);
-//     res.status(500).send("Internal Server Error");
-//   }
-// });
-
-
+// Update Route 
+app.put("/listings/:id", async (req,res)=>{
+  let { id } = req.params;
+  await Listing.findByIdAndUpdate(id, {...req.body.listing})  //object pass karke deconstruct  karke  / individual parameter ke andar pass karenge  , jisko new update value ke andar pass karnege 
+  res.redirect(`/listings/${id}`);
+});
 
 app.listen(PORT, (error) => {
   if (!error) console.log("Server is successful Running" + PORT);
