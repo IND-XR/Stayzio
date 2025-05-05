@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 
+const ejsMate = require("ejs-mate");
+
 const PORT = 8080;
 
 const Listing = require("./models/listing.js");    // isting models part
@@ -36,7 +38,8 @@ app.use(express.urlencoded({extended:true})); // id
 
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
-
+app.engine('ejs',ejsMate);
+app.use(express.static(path.join(__dirname,"/public")));
 
 // app.set("index.ejs",path.join(__filename, "index.ejs"))
 
@@ -113,8 +116,6 @@ app.delete("/listings/:id", async (req,res)=>{
   console.log(deletedListing);
   res.redirect("/listings");
 })
-
-
 
 
 app.listen(PORT, (error) => {
