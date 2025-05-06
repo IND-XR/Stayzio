@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>  Style Header</title>
+  
+</head>
+<body>
+  <div class="header">
+    <div class="logo">
+      <img src="https://i.pinimg.com/736x/a5/8b/e7/a58be7664fa61a4a9fb643e3bb1488db.jpg" alt="logo">
+    </div>
+  
+    <div class="nav" id="navMenu">
+      <a class="nav-links" href="#">Homes</a>
+      <a class="nav-links" href="/listings">All Listings</a>
+    </div>
+  
+    <div class="right-controls">
+      <span class="add-home">Add your home</span>
+      <a class="globe" href="/listings/new"> 🌐 </a>
+      <div class="user-btn">
+        <span>☰</span>
+        <a href="/listings/new">👤</a>
+      </div>
+      <div class="hamburger" onclick="toggleNav()">☰</div>
+    </div>
+  </div>
+
+  
+<script>
+  function toggleNav() {
+    const navMenu = document.getElementById('navMenu');
+    navMenu.classList.toggle('show');
+  }
+</script>
+
+<script src="appp.js"></script>
+
+</body>
+</html>

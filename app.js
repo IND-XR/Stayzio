@@ -8,7 +8,6 @@ const PORT = 8080;
 
 const Listing = require("./models/listing.js");    // isting models part
 
-
 //  { mongodb
 
 // MNGO_URL -  ( URL pass form mongodb website  )
@@ -41,8 +40,12 @@ app.use(methodOverride('_method'));
 app.engine('ejs',ejsMate);
 app.use(express.static(path.join(__dirname,"/public")));
 
-// app.set("index.ejs",path.join(__filename, "index.ejs"))
 
+
+function toggleNav() {
+  const navMenu = document.getElementById('navMenu');
+  navMenu.classList.toggle('show');
+}
 
 app.get("/", (req, res) => {
   res.send("Hi i am root");

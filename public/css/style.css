@@ -1,3 +1,130 @@
-body{
-    background-color: pink;
-}
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #fff;
+  }
+  
+  .header {
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 35px;
+    border-bottom: 1px solid #eee;
+    flex-wrap: wrap;
+    position: sticky; top : 0;
+    /* backdrop-filter:blur(100px); */
+  }
+  
+  .globe{
+    text-decoration: none;
+  }
+  .globe:hover{
+    font-size: 20px;
+    
+    /* filter: blur(3px); */
+  }
+
+
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .logo img {
+    height: 60px;
+  }
+  
+  .nav {
+    display: flex;
+    gap: 20px;
+    font-size: 16px;
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .nav a:hover {
+    color: #000;
+  }
+  
+  .right-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .right-controls .globe {
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  .globe:hover{
+    /* background-color: aqua;
+    font-size: 30px;
+     */
+    /* filter: blur(3px); */
+  }
+
+  
+  .user-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #ccc;
+    border-radius: 999px;
+    padding: 6px 10px;
+    cursor: pointer;
+  }
+  
+  /* Hamburger hidden on large screens */
+  .hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      margin-top: 10px;
+      background-color: white;
+      position: absolute;
+      top: 100px; /* below the header */
+      left: 0;
+      width: 100%;
+      padding: 10px 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 99;
+    }
+  
+    .nav.show {
+      display: flex;
+    }
+  
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .right-controls {
+      width: 100%;
+      justify-content: space-between;
+    }
+  
+    .hamburger {
+      display: block;
+    }
+  
+    .add-home {
+      display: none;
+    }
+  }
+  
