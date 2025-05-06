@@ -5,27 +5,22 @@ body {
   }
   
   .header {
-    
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 35px;
     border-bottom: 1px solid #eee;
     flex-wrap: wrap;
-    position: sticky; top : 0;
-    /* backdrop-filter:blur(100px); */
+    position: sticky;     /* Makes the header stick when scrolling */
+    top: 0;               /* Stick it to the top */
+    backdrop-filter: blur(100px);  /* Optional: background blur */
+    background-color: rgba(255, 255, 255, 0.9); /* Prevent transparency issues */
+    z-index: 999;   
   }
   
   .globe{
     text-decoration: none;
   }
-  .globe:hover{
-    font-size: 20px;
-    
-    /* filter: blur(3px); */
-  }
-
-
 
   .logo {
     display: flex;
