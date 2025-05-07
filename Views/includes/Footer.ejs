@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<style>
+    .footer{
+        background-color:#F7F7F7 ;
+        display: flex;
+        zoom: 0.9;
+        justify-content: space-around;
+    }
+    .one{
+        padding: 10px;
+        margin: 10px;
+        background: #F7F7F7;
+        display:flexbox;
+        /* justify-items: flex-start;
+        position: relative;*/
+        align-items: stretch;
+        text-decoration: none;
+        
+    }
+    .list{
+        display: flex;
+        flex-direction: row;
+        margin: 0px; 
+        padding: 5px;
+        text-decoration: none;
+    }
+
+    .line{
+        background-color: #F7F7F7;
+        /* height: 100px; */
+        display: flex; 
+        justify-content: space-between;
+    }
+    .part{
+        margin: 8px;
+        padding: 5px;
+        
+    }
+    
+
+    .last{
+        position: relative;
+        cursor: pointer;
+        text-decoration: none;
+        
+    }
+    
+    .last::after{
+        content: "";
+        position: absolute;
+        /* bottom: -5px; */
+        height: 3px;
+        width: 100%;
+        left :0;
+        bottom: 0;
+        background-color: red;
+        transition: 0.3s;
+        transition-timing-function: ease-in-out;
+        transform:scaleX(0) ;
+        text-decoration: underline solid red;
+    }
+    .last:hover::after{
+        transform:scaleX(1) ;
+    }
+    #logo{
+        height: 30px; ;
+        width: 30px;
+    }
+
+</style>
+<body>
+    
+    <div class="footer"> 
+        <div class="one"> 
+            <p> <b> Support </b> </p>
+            <a class="list" href="#">Help centre</a>
+            <a class="list" href="#"> QuickStay</a>
+            <a class="list" href="#"> Anti-discrimination</a>
+            <a class="list" href="#"> Disability Support</a>
+            <a class="list" href="#"> Cancelation Options</a>
+            <a class="list" href="#"> Report neighbourhood concern</a>
+        </div>
+        <div class="one">
+            <p> <b> Hosting </b> </p>
+            <a class="list" href="#"> QuickStay your home</a>
+            <a class="list" href="#"> QuickStay for Hosts</a>
+            <a class="list" href="#"> Hosting resources</a>
+            <a class="list" href="#"> Community Forum</a>
+            <a class="list" href="#"> Hosting responsibly</a>
+            <a class="list" href="#"> Join a free Hosting class</a>
+            <a class="list" href="#"> Find a co-host</a>
+
+        </div>
+        <div class="one">
+            <p> <b>  QuickStay </b> </p>
+            <a class="list" href="#"> Newsroom </a>
+            <a class="list" href="#"> New Features </a>
+            <a class="list" href="#"> Careers </a>
+            <a class="list" href="#"> invertors </a>
+            <a class="list"  href="#"> QuickStay.org emergency stays </a>
+        </div>
+    </div>
+    
+    <div>
+        <div class="line">
+            <div class="part">
+                <a > © 2025 QuickStay, Inc. </a>
+                <a class="last" href="#">Privacy</a> .  
+                <a class="last" href="#"> Terms </a> .
+                <a class="last" href="#"> Sitemap </a> .
+                <a class="last" href="#"> Company details </a> .
+            </div>
+            <div class="part" >
+                <img id="logo" class="last" src="https://img.icons8.com/?size=100&id=118466&format=png&color=000000" alt="">
+                <img id="logo" class="last" src="https://img.icons8.com/?size=100&id=59813&format=png&color=000000" alt="">
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
