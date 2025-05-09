@@ -1,3 +1,52 @@
+// const mongoose = require("mongoose");
+// const Listing = require("./models/listing"); // Adjust the path if needed
+
+// // Replace with your MongoDB connection string
+// const MONGO_URI = "mongodb://127.0.0.1:27017/wanderlust";
+
+// mongoose.connect(MONGO_URI)
+//   .then(() => {
+//     console.log("✅ Connected to MongoDB");
+
+//     // Example: create and fetch a listing
+//     createAndFetchListing();
+//   })
+//   .catch((err) => {
+//     console.error("❌ MongoDB connection error:", err);
+//   });
+
+// async function createAndFetchListing() {
+//   try {
+//     // ✅ Step 1: Create a new listing
+//     const newListing = new Listing({
+//       title: "Sunset Paradise",
+//       description: "A beautiful beach location.",
+//       image: "",
+//       price: 199,
+//       location: "Goa",
+//       country: "India"
+//     });
+
+//     const savedListing = await newListing.save();
+//     console.log("✅ Listing saved:", savedListing);
+
+//     // ✅ Step 2: Fetch the listing using its ObjectId
+//     const id = savedListing._id;
+
+//     if (mongoose.Types.ObjectId.isValid(id)) {
+//       const foundListing = await Listing.findById(id);
+//       console.log("✅ Listing fetched:", foundListing);
+//     } else {
+//       console.error("❌ Invalid ObjectId");
+//     }
+
+//   } catch (err) {
+//     console.error("❌ Error:", err);
+//   }
+// }
+
+
+
 const mongoose = require("mongoose")
 const initData  = require("./data.js")
 

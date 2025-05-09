@@ -40,6 +40,7 @@ app.use(methodOverride('_method'));
 app.engine('ejs',ejsMate);
 app.use(express.static(path.join(__dirname,"/public")));
 
+app.use('/uploads', express.static('uploads'));  // for image
 
 
 function toggleNav() {
@@ -68,12 +69,32 @@ app.get("/listings/new",(req,res)=>{
 
 
 // Show Id
-app.get("/listings/:id", async (req,res)=>{
-  // req.params['id'];
-  let { id } = req.params;
-  const listing = await Listing.findById(id);
-  res.render("listings/show.ejs",{listing});
+app.get("/listings/:id", async (req, res) => {
+  const { id } = req.params;
+
+  // Check if ID is a valid ObjectId
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).send("❌ Invalid listing ID");
+  }
+
+  try {
+    const listing = await Listing.findById(id);
+    if (!listing) {
+      return res.status(404).send("❌ Listing not found");
+    }
+
+    res.render("listings/show.ejs", { listing });
+  } catch (err) {
+    console.error("❌ Error fetching listing:", err);
+    res.status(500).send("Internal Server Error");
+  }
 });
+// app.get("/listings/:id", async (req,res)=>{
+//   // req.params['id'];
+//   let { id } = req.params;
+//   const listing = await Listing.findById(id);
+//   res.render("listings/show.ejs",{listing});
+// });
 
 
 // Create Route
@@ -119,6 +140,14 @@ app.delete("/listings/:id", async (req,res)=>{
   console.log(deletedListing);
   res.redirect("/listings");
 })
+
+
+
+// app.post("/listings", async (req, res) => {
+//   const newListing = new Listing(req.body.listing); // assumes you have listing[image] in form
+//   await newListing.save();
+//   res.redirect(`/listings/${newListing._id}`);
+// });
 
 
 app.listen(PORT, (error) => {

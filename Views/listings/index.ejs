@@ -2,15 +2,35 @@
 <body>
     <h3> All Listing </h3>
 
-  <form action="/listings/new" method="GET">    <!-- is link ar chale jayega  -->
+  <!-- <form action="/listings/new" method="GET">    is link ar chale jayega 
         <button>Create New Lising </button>
-    </form>
+    </form> -->
 
-    <ul>
-        <% for(let listing of allListings){ %>
-            <li> <a href="/listings/<%= listing._id %>"> <%= listing.title %> </a>  </li>
-        <%  }  %>
-    </ul>
+<div class="row">
+   <% for(let listing of allListings) { %>
+   <div class="cardd">
+     <div class="card">
+       <a href="/listings/<%= listing._id %>">
+         <img src="<%= listing.image.url %>" alt="listing_image" class="card-image" />
+       </a>
+       <div class="card-body">
+         <div class="card-title">
+           <a class="titlenames" href="/listings/<%= listing._id %>">
+             <h2 class="titlename"> <%= listing.title %> </h2>
+           </a>
+           <!-- <h2> <%= listing.title %> </h2> -->
+           <span class="rating">★ 4.87</span>
+         </div>
+         <p> <b> Location : </b> <%= listing.location %> </p>
+         <p> <b> Country : </b> <%= listing.country %> </p>
+         <p class="price"> &#x20b9; <%= listing.price.toLocaleString("en-IN")%> <span class="nights"> </span></p>
+       </div>
+     </div>
+     <%  }  %>
+</div>
+
+
+    
     <%- include("../includes/footer.ejs") %>
     <%- include("../includes/footerlist.ejs") %>
 
@@ -19,3 +39,8 @@
     
 </body>
 
+<!-- <ul>
+    <% for(let listing of allListings){ %>
+        <li> <a href="/listings/<%= listing._id %>"> <%= listing.title %> </a>  </li>
+    <%  }  %>
+</ul> -->

@@ -9,12 +9,14 @@
     <h3> Edit Listings </h3>
 
     <form method="POST" action="/listings/<%= listing._id %>?_method=PUT">
-
         <input type="text" name="listing[title]" value="<%=listing.title %>">
         <br> <br>
         <textarea name="listing[description]"><%= listing.description %></textarea>
         <br> <br>
-        <input type="text" name="listing[image]" value="<%=listing.image %>">
+
+        <img src="<%= listing.image %>" alt="listing image" />
+
+        <!-- <input type="text" name="listing[image]" value="<%=listing.image %>"> -->
         <br> <br>
         <input type="number" name="listing[price]" value="<%=listing.price %>">
         <br> <br>
@@ -23,8 +25,17 @@
         <input type="text" name="listing[Country]" value="<%=listing.country %>">
         <br> <br>
         <Button>Add</Button>
-
     </form>
-
+    
+    <script>
+        const imgInput = document.getElementById("imgInput");
+        const preview = document.getElementById("preview");
+      
+        imgInput.addEventListener("input", () => {
+          const url = imgInput.value;
+          preview.src = url;
+          preview.style.display = url ? "block" : "none";
+        });
+      </script>
 </body>
 </html>
