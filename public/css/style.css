@@ -1,8 +1,14 @@
-@charset "UTF-8";
 body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
   background: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  flex: 1;
 }
 
 .header {
@@ -312,168 +318,59 @@ body {
   color: #666;
 }
 
-.full {
-  padding: 60px;
+.listing-form-section {
+  background-color: #f9f9f9;
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
 }
-
-.listing-container {
-  max-width: 800px;
-  margin: auto;
-  background: #fff;
+.listing-form-section .listing-form-container {
+  background: white;
+  padding: 30px 40px;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  padding: 2rem;
-}
-
-.listing-header {
-  text-align: center;
-}
-.listing-header h2 {
-  margin-bottom: 0.25rem;
-  font-size: 1.8rem;
-  color: #333;
-}
-.listing-header p {
-  color: #666;
-  font-size: 0.95rem;
-}
-
-.progress-steps {
-  display: flex;
-  justify-content: space-between;
-  margin: 2rem 0;
-}
-.progress-steps .step {
-  text-align: center;
-  flex: 1;
-}
-.progress-steps .step .step-circle {
-  width: 38px;
-  height: 38px;
-  line-height: 38px;
-  margin: auto;
-  border-radius: 50%;
-  background: #f5f5f5;
-  color: #666;
-  font-weight: bold;
-  border: 2px solid #e0e0e0;
-}
-.progress-steps .step span {
-  display: block;
-  margin-top: 0.5rem;
-  font-size: 0.85rem;
-}
-.progress-steps .step.step-active .step-circle {
-  background: #e60023;
-  color: white;
-  border-color: #e60023;
-}
-.progress-steps .step.step-active span {
-  color: #e60023;
-  font-weight: 600;
-}
-
-.form-section {
-  border: 1px solid #e0e0e0;
-  padding: 1.5rem;
-  border-radius: 8px;
-}
-.form-section h3 {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 1.25rem;
-  margin-bottom: 0.25rem;
-}
-.form-section h3 .icon-info {
-  font-size: 1rem;
-  color: #e60023;
-}
-.form-section .form-subtitle {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 1.5rem;
-}
-.form-section .form-group {
-  margin-bottom: 1rem;
-}
-.form-section .form-group label {
-  display: block;
-  font-size: 0.95rem;
-  margin-bottom: 0.25rem;
-}
-.form-section .form-group .required {
-  color: #e60023;
-}
-.form-section .form-group input, .form-section .form-group select, .form-section .form-group textarea {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   width: 100%;
-  padding: 0.6rem 0.75rem;
-  border-radius: 6px;
-  border: 1px solid #e0e0e0;
-  font-size: 0.95rem;
+  max-width: 500px;
 }
-.form-section .form-group input:focus, .form-section .form-group select:focus, .form-section .form-group textarea:focus {
+.listing-form-section .listing-form-container .form-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #e60023;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.listing-form-section .listing-form-container .listing-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.listing-form-section .listing-form-container .listing-form input,
+.listing-form-section .listing-form-container .listing-form textarea {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  transition: border 0.3s;
+}
+.listing-form-section .listing-form-container .listing-form input:focus,
+.listing-form-section .listing-form-container .listing-form textarea:focus {
   border-color: #e60023;
   outline: none;
 }
-.form-section .form-group textarea {
-  height: 100px;
+.listing-form-section .listing-form-container .listing-form textarea {
   resize: vertical;
+  min-height: 80px;
 }
-.form-section .form-row {
-  display: flex;
-  gap: 1rem;
-}
-.form-section .form-row > div {
-  flex: 1;
-}
-.form-section .form-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 1.5rem;
-}
-.form-section .form-actions .btn-draft {
-  background: #f2f2f2;
-  border: 1px solid #e0e0e0;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
-  cursor: pointer;
-}
-.form-section .form-actions .action-buttons {
-  display: flex;
-  gap: 0.75rem;
-}
-.form-section .form-actions .action-buttons .btn-primary {
-  background: #e60023;
+.listing-form-section .listing-form-container .listing-form button {
+  padding: 12px;
+  background-color: #e60023;
   color: white;
   border: none;
-  padding: 0.6rem 1.2rem;
+  font-size: 16px;
   border-radius: 6px;
   cursor: pointer;
-  font-weight: 500;
+  transition: background-color 0.3s;
 }
-.form-section .form-actions .action-buttons .btn-secondary {
-  background: white;
-  color: #e60023;
-  border: 1px solid #e60023;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 500;
-}
-.form-section .red-tips {
-  background-color: #fefefe;
-  padding: 1rem;
-  border-radius: 8px;
-  margin-top: 2rem;
-  border-left: 4px solid #d32f2f;
-}
-.form-section .red-tips ul {
-  list-style: none;
-  padding-left: 1rem;
-}
-.form-section .red-tips li::before {
-  content: "✔ ";
-  color: #388e3c;
+.listing-form-section .listing-form-container .listing-form button:hover {
+  background-color: #c2001e;
 }/*# sourceMappingURL=style.css.map */

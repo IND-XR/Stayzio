@@ -1,0 +1,21 @@
+<% layout("/layouts/boilerplate") %>
+
+    <body>
+        <section class="listing-form-section">
+            <div class="listing-form-container">
+                <h2 class="form-title">Create a New Listing</h2>
+                <form class="listing-form" method="POST" action="/listings" >
+                    <input type="text" placeholder="Enter title" name="listing[title]" />
+                    <textarea placeholder="Enter description" name="listing[description]" ></textarea>
+                    <input type="text" placeholder="Enter image URL" name="listing[image]" />
+                    <input type="number" placeholder="Enter price"  name="listing[price]" />
+                    <input type="text" placeholder="Enter location" name="listing[Locations]" />
+                    <input type="text" placeholder="Enter country" name="listing[Country]" />
+                    <button type="submit">Add Listing</button>
+                </form>
+            </div>
+        </section>
+    </body>
+
+    <%- include("../includes/footer.ejs") %>
+    <%- include("../includes/footerlist.ejs") %>
