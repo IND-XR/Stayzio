@@ -1,0 +1,134 @@
+    <% layout("/layouts/boilerplate") %>
+
+
+<body>
+    <div class="full"> 
+      <div class="listing-container">
+    <div class="listing-header">
+      <h2>Add New Listing</h2>
+      <p>Fill out the form below to create your property listing</p>
+    </div>
+
+    <div class="progress-steps">
+      <div class="step step-active">
+        <div class="step-circle">i</div>
+        <span>Basic Info</span>
+      </div>
+      <div class="step"><div class="step-circle">🏠</div><span>Details & Features</span></div>
+      <div class="step"><div class="step-circle">📷</div><span>Photos & Media</span></div>
+      <div class="step"><div class="step-circle">📍</div><span>Pricing & Location</span></div>
+    </div>
+
+    <div class="form-section">
+      <h3><span class="icon-info">ℹ️</span> Basic Information</h3>
+      <p class="form-subtitle">Start with the essential details about your property</p>
+
+      <form>
+        <div class="form-group">
+          <label for="title">Title <span class="required">*</span></label>
+          <input type="text" id="title" placeholder="e.g., Beautiful 3-bedroom house with garden" />
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description <span class="required">*</span></label>
+          <textarea id="description" placeholder="Describe your property in detail..."></textarea>
+        </div>
+
+        <div class="form-group form-row">
+          <div>
+            <label for="propertyType">Property Type <span class="required">*</span></label>
+            <select id="propertyType">
+              <option>Select property type</option>
+            </select>
+          </div>
+          <div>
+            <label for="category">Category <span class="required">*</span></label>
+            <select id="category">
+              <option>Select category</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn-draft">💾 Save as Draft</button>
+          <div class="action-buttons">
+            <button type="button" class="btn-secondary">Next Step ➜</button>
+            <button type="submit" class="btn-primary">Continue to Details 📄</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <br>
+    <br>
+          <div class="red-tips">
+        <h4>Tips for Creating a Great Listing</h4>
+        <ul>
+          <li>✅ Use high-quality photos that showcase your property’s best features</li>
+          <li>✅ Be detailed and honest in your description</li>
+          <li>✅ Highlight unique selling points and nearby amenities</li>
+          <li>✅ Set a competitive price based on similar properties in the area</li>
+        </ul>
+      </div>
+  </div>
+  </div>
+
+<!-- 
+  <main class="red-main">
+    <section class="red-form-wrapper">
+      <h2 class="red-title">Add New Listing</h2>
+      <p class="red-subtitle">Fill out the form below to create your property listing</p>
+
+      <div class="red-stepper">
+        <div class="red-step red-active">Basic Info</div>
+        <div class="red-step">Details & Features</div>
+        <div class="red-step">Photos & Media</div>
+        <div class="red-step">Pricing & Location</div>
+      </div>
+
+      <form class="red-form">
+        <div class="red-form-group">
+          <h3 class="red-section-title">Basic Information</h3>
+          <label for="title" class="red-label">Title <span>*</span></label>
+          <input type="text" id="title" placeholder="e.g., Beautiful 3-bedroom house with garden" class="red-input">
+
+          <label for="description" class="red-label">Description <span>*</span></label>
+          <textarea id="description" placeholder="Describe your property in detail..." class="red-textarea"></textarea>
+
+          <div class="red-row">
+            <div>
+              <label for="propertyType" class="red-label">Property Type <span>*</span></label>
+              <select id="propertyType" class="red-select">
+                <option>Select property type</option>
+              </select>
+            </div>
+            <div>
+              <label for="category" class="red-label">Category <span>*</span></label>
+              <select id="category" class="red-select">
+                <option>Select category</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="red-buttons">
+            <button type="button" class="red-btn red-secondary">Save as Draft</button>
+            <button type="submit" class="red-btn red-primary">Continue to Details</button>
+          </div>
+        </div>
+      </form>
+
+      <div class="red-tips">
+        <h4>Tips for Creating a Great Listing</h4>
+        <ul>
+          <li>✅ Use high-quality photos that showcase your property’s best features</li>
+          <li>✅ Be detailed and honest in your description</li>
+          <li>✅ Highlight unique selling points and nearby amenities</li>
+          <li>✅ Set a competitive price based on similar properties in the area</li>
+        </ul>
+      </div>
+    </section>
+  </main> -->
+</body>
+
+
+ <%- include("../includes/footer.ejs") %>
+    <%- include("../includes/footerlist.ejs") %>

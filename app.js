@@ -71,6 +71,10 @@ app.get("/listings/add",(req,res)=>{
   res.render("listings/addingnew.ejs")
 })
 
+app.get("/listings/add/Basicinfo",(req,res)=>{
+  res.render("listings/addinglist1.ejs")
+})
+
 
 
 
