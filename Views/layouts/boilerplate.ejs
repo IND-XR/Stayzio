@@ -10,17 +10,19 @@
     <%- include("../includes/navbar.ejs") %>
     <div class="container"> <%- body %> </div>
 
-    <script src="main.js">
+
+    
+    <!-- <script src="main.js">
         const likeBtn = document.querySelector('.heart-icon');
-let isLiked = false;
+        let isLiked = false;
+        
+        const likeClick = () => {
+            isLiked = !isLiked;
+            likeBtn.parentElement.classList.toggle('isLiked', isLiked);
+        };
+        likeBtn.addEventListener('click', likeClick);
+    </script> -->
 
-const likeClick = () => {
-  isLiked = !isLiked;
-  likeBtn.parentElement.classList.toggle('isLiked', isLiked);
-};
-
-likeBtn.addEventListener('click', likeClick);
-    </script>
 </body>
 </html>
 

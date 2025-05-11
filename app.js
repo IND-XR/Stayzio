@@ -67,6 +67,12 @@ app.get("/listings/new",(req,res)=>{
   // res.send("heloo");
 })
 
+app.get("/listings/add",(req,res)=>{
+  res.render("listings/addingnew.ejs")
+})
+
+
+
 
 // Show Id
 app.get("/listings/:id", async (req, res) => {
@@ -105,6 +111,7 @@ app.get("/listings/:id", async (req, res) => {
 //   res.redirect("/listings")
 // })
 
+
 app.post("/listings", async (req, res) => {
   try {
     const newListing = new Listing(req.body.listing);
@@ -140,14 +147,6 @@ app.delete("/listings/:id", async (req,res)=>{
   console.log(deletedListing);
   res.redirect("/listings");
 })
-
-
-
-// app.post("/listings", async (req, res) => {
-//   const newListing = new Listing(req.body.listing); // assumes you have listing[image] in form
-//   await newListing.save();
-//   res.redirect(`/listings/${newListing._id}`);
-// });
 
 
 app.listen(PORT, (error) => {

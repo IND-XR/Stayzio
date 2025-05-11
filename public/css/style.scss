@@ -1,3 +1,4 @@
+$primary: #e53935; // Red
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -264,5 +265,66 @@ body {
 
   &:hover::after {
     transform: scaleX(1);
+  }
+}
+
+
+// ****************************************************
+.hero {
+  background-color: $primary;
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+  text-decoration: none;
+
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 800;
+  }
+
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+  }
+
+  .cta {
+    background-color: white;
+    color: black;
+    border: 2px solid white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+     text-decoration: none;
+    
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.9);
+
+    }
+  }
+  .line{
+    text-decoration: none;
+  }
+
+}
+
+.marketplace {
+  padding: 60px 20px;
+  text-align: center;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #111;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #666;
   }
 }

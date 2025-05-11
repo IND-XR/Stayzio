@@ -260,4 +260,53 @@ body {
 }
 .titlenames:hover::after {
   transform: scaleX(1);
+}
+
+.hero {
+  background-color: #e53935;
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+  text-decoration: none;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+.hero .cta {
+  background-color: white;
+  color: black;
+  border: 2px solid white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+}
+.hero .cta:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.hero .line {
+  text-decoration: none;
+}
+
+.marketplace {
+  padding: 60px 20px;
+  text-align: center;
+}
+.marketplace h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #111;
+}
+.marketplace p {
+  font-size: 1rem;
+  color: #666;
 }/*# sourceMappingURL=style.css.map */
